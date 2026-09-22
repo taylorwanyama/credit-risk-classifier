@@ -3,9 +3,13 @@ from fastapi import FastAPI, HTTPException
 import pandas as pd
 from pydantic import BaseModel, Field
 import joblib
+import json
+from pydantic import field_validator
+
 
 app = FastAPI()
 model = joblib.load('models/decision_tree_model.pkl')
+ALLOWED = json.load(open('models/allowed_values.json')) 
 
 class InputData(BaseModel):
     checking_status: str
@@ -28,6 +32,14 @@ class InputData(BaseModel):
     num_dependents: int
     own_telephone: str
     foreign_worker: str
+
+    @field_validator(*ALLOWED.keys())
+    @classmethod
+    def check_allowed(cls, v, info):
+        allowed = ALLOWED[info.field_name]
+        if v not in allowed:
+            raise ValueError(f"{info.field_name} must be one of {allowed}")
+        return v
 
 @app.post('/predict')
 def predict(data: InputData):
