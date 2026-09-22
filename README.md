@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Credit Risk Prediction API
 
 A machine learning API that predicts whether a loan applicant is likely to default, built on the German Credit dataset and served with FastAPI.
