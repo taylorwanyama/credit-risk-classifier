@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Credit Risk Prediction API
 
 A machine learning API that predicts whether a loan applicant is likely to default, built on the German Credit dataset and served with FastAPI.
@@ -120,5 +120,4 @@ The API will be available at `http://localhost:8000/predict`, with interactive d
 - Several features (`age`, `personal_status`, `foreign_worker`) are sensitive attributes in a credit-scoring context. This project does not currently include a fairness audit; before any real-world use, disparate impact across these groups should be evaluated.
 - Predicted probabilities are not calibrated (the Decision Tree was tuned with `class_weight='balanced'`), so they should be read as relative risk scores rather than true probabilities.
 =======
-# credit-risk-classifier
->>>>>>> 3cc4576e977ae3ce43c575fa5345f4f55275fe85
+
