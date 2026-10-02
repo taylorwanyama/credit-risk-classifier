@@ -83,13 +83,17 @@ async def measure_request_time(request: Request, call_next):
 def predict(data: InputData):
     # Convert Pydantic input to DataFrame
     df = pd.DataFrame([data.model_dump()])
-    
-    # Prediction
-    prediction = model.predict(df)[0]
+    try:
+        # Prediction
+        prediction = model.predict(df)[0]
 
-    # Probabilities
-    probability = model.predict_proba(df)[0]
-    
+        # Probabilities
+        probability = model.predict_proba(df)[0]
+    except Exception:
+        logger.exception("Prediction failed for input: %s", data.model_dump())
+        raise HTTPException(status_code=500, detail="Unable to process this request.")
+
+  
     if prediction == 1:
         return {
             'prediction': int(prediction),
