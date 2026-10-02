@@ -77,8 +77,12 @@ async def measure_request_time(request: Request, call_next):
         request.url.path,
         elapsed_time
     )
-    return response    
-
+    return response 
+   
+@app.get('/health/live')
+async def health_live():
+    return {'status': 'alive'}
+ 
 @app.post('/predict')
 def predict(data: InputData):
     # Convert Pydantic input to DataFrame
