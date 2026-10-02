@@ -11,7 +11,7 @@ The target is imbalanced (roughly 30% `bad` / 70% `good`), and in credit risk, a
 
 ## Dataset
 
-The dataset contains 1,000 loan applications with 20 features covering checking account status, credit history, loan purpose, credit amount, employment, age, and other applicant attributes. No missing values were present. Numeric features (e.g. `duration`, `credit_amount`) vary widely in scale, so scaling was applied for the linear model; categorical features were one-hot encoded for all models.
+The dataset contains 1,000 loan applications with 20 features covering checking account status, credit history, loan purpose, credit amount, employment, age, and other applicant attributes. No missing values were present, and I also checked and confirmed that there were no duplicate rows across features or target. Numeric features (e.g. `duration`, `credit_amount`) vary widely in scale, so scaling was applied for the linear model; categorical features were one-hot encoded for all models. 
 
 Data was split 80/20 with stratification on the target to preserve class balance in both sets.
 
