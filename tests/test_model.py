@@ -64,8 +64,4 @@ def test_model_predictions():
     assert prediction[0] in [0, 1]
 
 
-
-  
-
-
   
