@@ -1,0 +1,24 @@
+This is how our project structure will look like
+credit-risk-classifier/
+│
+├── main.py
+├── config.py
+│
+├── requirements.txt
+├── requirements-lock.txt
+├── Dockerfile
+├── .dockerignore
+├── .gitignore
+│
+├── models/
+│   ├── decision_tree_model.pkl
+│   ├── allowed_values.json
+│   └── model_metadata.json
+│
+├── tests/
+│   ├── test_api.py
+│   ├── test_model.py
+│   └── test_model_quality.py
+│
+└── training/
+    └── training.ipynb

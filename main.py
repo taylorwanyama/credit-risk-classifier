@@ -8,6 +8,8 @@ from pydantic import field_validator
 import time 
 import logging
 from pathlib import Path
+from dotenv import load_dotenv
+import os
 
 logging.basicConfig(
     level=logging.INFO,
@@ -18,12 +20,14 @@ logging.getLogger("httpx").setLevel(logging.WARNING)
 logging.getLogger("httpcore").setLevel(logging.WARNING)
 
 logger = logging.getLogger(__name__)
+load_dotenv()
 
 app = FastAPI()
+model_file_path = os.getenv("MODELPATH")
 BASE_DIR = Path(__file__).resolve().parent
-model = joblib.load(BASE_DIR / 'models' / 'decision_tree_model.pkl')
+model = joblib.load(BASE_DIR / model_file_path)
 
-with open(BASE_DIR / 'models' / 'allowed_values.json') as f:
+with open(BASE_DIR / os.getenv("ALLOWEDPATH")) as f:
     ALLOWED = json.load(f)
 
 #print(type(ALLOWED), len(ALLOWED), list(ALLOWED.keys()))
