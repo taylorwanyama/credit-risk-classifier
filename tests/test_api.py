@@ -97,3 +97,9 @@ def test_predict_response():
     assert "prediction" in body
     assert "probability" in body
     assert "message" in body
+
+def test_health_check():
+    response = client.get("/health/live")
+
+    assert response.status_code == 200
+    assert response.json() == {"status": "alive"}    
