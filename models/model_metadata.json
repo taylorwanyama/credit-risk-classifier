@@ -1,12 +1,15 @@
 {
-    "model_name": "decision_tree_model",
+    "model_name": "credit-risk-classifier",
     "model_version": "1.0.0",
     "algorithm": "DecisionTreeClassifier",
+    "artifact_path": "models/decision_tree_model.pkl",
     "random_state": 42,
-    "Evaluation_metrics": "F2",
+    "Evaluation_metrics": {
+        "F2_score": 0.71625,
+        "Recall_score": 0.8667
+    },
     "training_split": 0.8,
     "test_split": 0.2,
-    "model_file_path": "models/decision_tree_model.pkl",
     "hyperparameters": {
         "class_weight": "balanced",
         "criterion": "entropy",
@@ -14,5 +17,11 @@
         "min_samples_split": 2,
         "min_samples_leaf": 1,
         "random_state": 42
-    }
-}    
+    },
+    "training":{
+       "training_dataset": "credit_risk_data.csv",
+       "test_dataset": "test_holdout.csv"
+    },
+    "training_date": "2025-09-20T10:30:00Z"
+
+}   

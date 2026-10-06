@@ -102,4 +102,15 @@ def test_health_check():
     response = client.get("/health/live")
 
     assert response.status_code == 200
-    assert response.json() == {"status": "alive"}    
+    assert response.json() == {"status": "alive"}  
+
+def test_model_info():
+    response = client.get("/model-info")
+
+    assert response.status_code == 200
+
+    body = response.json()
+
+    assert "model_name" in body
+    assert "version" in body
+    assert "algorithm" in body      

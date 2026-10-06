@@ -27,7 +27,8 @@ model = joblib.load(BASE_DIR / 'models' / 'decision_tree_model.pkl')
 with open(BASE_DIR / 'models' / 'allowed_values.json') as f:
     ALLOWED = json.load(f)
 
-#print(type(ALLOWED), len(ALLOWED), list(ALLOWED.keys()))
+with open(BASE_DIR / 'models' / 'model_metadata.json') as f:
+    model_metadata = json.load(f)
 
 if not ALLOWED:
     raise RuntimeError("allowed_values.json is empty, cannot build validators")
@@ -83,6 +84,14 @@ async def measure_request_time(request: Request, call_next):
 @app.get('/health/live')
 async def health_live():
     return {'status': 'alive'}
+@app.get('/model-info')
+async def model_info():
+
+    return {
+        'model_name': model_metadata['model_name'],
+        'version': model_metadata['model_version'],
+        'algorithm': model_metadata['algorithm']
+    }
  
 @app.post('/predict')
 def predict(data: InputData):
