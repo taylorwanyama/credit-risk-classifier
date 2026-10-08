@@ -1,0 +1,44 @@
+artifact_path: file:///C:/Users/ADMIN/Downloads/classification-problem/mlruns/1/models/m-2a3009e7ca2743d88e1b528106a452e3/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.9
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: pickle
+    sklearn_version: 1.9.0
+    skops_trusted_types: null
+is_signature_from_type_hint: false
+mlflow_version: 3.17.0
+model_id: m-2a3009e7ca2743d88e1b528106a452e3
+model_size_bytes: 6417
+model_uuid: m-2a3009e7ca2743d88e1b528106a452e3
+prompts: null
+run_id: 429773bb91a4466984ff88de5e28cda5
+signature:
+  inputs: '[{"type": "string", "name": "checking_status", "required": true}, {"type":
+    "long", "name": "duration", "required": true}, {"type": "string", "name": "credit_history",
+    "required": true}, {"type": "string", "name": "purpose", "required": true}, {"type":
+    "long", "name": "credit_amount", "required": true}, {"type": "string", "name":
+    "savings_status", "required": true}, {"type": "string", "name": "employment",
+    "required": true}, {"type": "long", "name": "installment_commitment", "required":
+    true}, {"type": "string", "name": "personal_status", "required": true}, {"type":
+    "string", "name": "other_parties", "required": true}, {"type": "long", "name":
+    "residence_since", "required": true}, {"type": "string", "name": "property_magnitude",
+    "required": true}, {"type": "long", "name": "age", "required": true}, {"type":
+    "string", "name": "other_payment_plans", "required": true}, {"type": "string",
+    "name": "housing", "required": true}, {"type": "long", "name": "existing_credits",
+    "required": true}, {"type": "string", "name": "job", "required": true}, {"type":
+    "long", "name": "num_dependents", "required": true}, {"type": "string", "name":
+    "own_telephone", "required": true}, {"type": "string", "name": "foreign_worker",
+    "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "int64", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2026-10-08 09:22:09.987430'
