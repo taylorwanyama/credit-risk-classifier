@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 app = FastAPI()
 BASE_DIR = Path(__file__).resolve().parent
-model = joblib.load(BASE_DIR / 'models' / 'decision_tree_model.pkl')
+model = joblib.load(BASE_DIR / 'models' / 'credit-risk-classifier.joblib')
 
 with open(BASE_DIR / 'models' / 'allowed_values.json') as f:
     ALLOWED = json.load(f)
@@ -84,13 +84,15 @@ async def measure_request_time(request: Request, call_next):
 @app.get('/health/live')
 async def health_live():
     return {'status': 'alive'}
+
 @app.get('/model-info')
 async def model_info():
 
     return {
         'model_name': model_metadata['model_name'],
         'version': model_metadata['model_version'],
-        'algorithm': model_metadata['algorithm']
+        'algorithm': model_metadata['algorithm'],
+        'model_path': model_metadata['artifact_path']
     }
  
 @app.post('/predict')

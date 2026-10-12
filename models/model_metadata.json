@@ -2,7 +2,7 @@
     "model_name": "credit-risk-classifier",
     "model_version": "1.0.0",
     "algorithm": "DecisionTreeClassifier",
-    "artifact_path": "models/decision_tree_model.pkl",
+    "artifact_path": "models/credit-risk-classifier.joblib",
     "random_state": 42,
     "Evaluation_metrics": {
         "F2_score": 0.71625,
@@ -22,6 +22,6 @@
        "training_dataset": "credit_risk_data.csv",
        "test_dataset": "test_holdout.csv"
     },
-    "training_date": "2025-09-20T10:30:00Z"
+    "training_date": "2026-10-11T10:30:00Z"
 
 }   
